@@ -1,0 +1,51 @@
+---
+title: "CodeBook"
+author: "Hyejoon"
+date: '2020 8 11 '
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Getting and Cleaning the Data
+
+## Course Project
+
+### Description
+
+This Project aimed to analyze wearable computing data collected from the accelerometers on the Samsung Galaxy S smartphone. 
+A full description is available at the site where the data was obtained: <http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones>
+
+The data sets used for this projects: 
+<https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>
+
+### Procedure with corresponding functions
+
+1. Downloading the Zip file and extracting   
+       i) download.file ()  
+       ii) unzip ()  
+       
+2. Reading the data files in the folder  
+       i) read.csv ()    
+       ii) read.table ()  
+       iii) as.character ()  
+       
+3. Combining the data into "train" and "test" data using data.frame ()  
+
+4. Combining "train" and "test" data into a complete data using rbind ()  
+
+5. Extracting measurements on mean and standard deviations only by subsetting using grep ()  
+
+6. Getting the activities and using them in the mean-std data by index subsetting  
+       i) read.table ()  
+       ii) as.character ()  
+
+7. Naming the variables properly  
+       i) names ()  
+       ii) gsub ()  
+       
+8. Getting a tidy with average in each variable and per activity and subject   
+       i) aggregate () with "mean' as "FUN" attribute  
+       ii) write.table () with " row.names = FALSE "  
